@@ -1,0 +1,34 @@
+galerie-oselo/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── config/
+│   └── database.php
+├── controllers/
+│   ├── ArtworkController.php
+│   ├── WarehouseController.php
+│   └── HomeController.php
+├── models/
+│   ├── Artwork.php
+│   ├── Warehouse.php
+│   └── Database.php
+├── views/
+│   ├── layouts/
+│   │   └── main.php
+│   ├── artworks/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── show.php
+│   ├── warehouses/
+│   │   ├── index.php
+│   │   ├── create.php
+│   │   ├── edit.php
+│   │   └── show.php
+│   └── home/
+│       └── index.php
+├── index.php
+├── .htaccess
+└── README.md
+
