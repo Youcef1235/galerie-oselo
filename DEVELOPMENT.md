@@ -88,4 +88,3 @@ The database schema consists of two main tables:
 - Add sorting and filtering options
 - Add export functionality (CSV, PDF)
 - Add statistics and reporting
-
