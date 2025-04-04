@@ -2,12 +2,22 @@
 // Entry point of the application
 // Route the request to the appropriate controller
 
-// Define base path
-define('BASE_PATH', __DIR__);
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Include necessary files
+// Define base path with correct directory separators for Windows
+define('BASE_PATH', str_replace('\\', '/', __DIR__));
+
+// Include necessary files with proper path handling
 require_once BASE_PATH . '/config/database.php';
 require_once BASE_PATH . '/models/Database.php';
+
+// Start session if not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Simple routing
 $route = isset($_GET['route']) ? $_GET['route'] : 'home';
@@ -19,6 +29,7 @@ switch ($route) {
         $controller = new HomeController();
         $controller->index();
         break;
+        
     case 'artworks':
         require_once BASE_PATH . '/controllers/ArtworkController.php';
         $controller = new ArtworkController();
@@ -48,6 +59,7 @@ switch ($route) {
                 break;
         }
         break;
+        
     case 'warehouses':
         require_once BASE_PATH . '/controllers/WarehouseController.php';
         $controller = new WarehouseController();
@@ -77,9 +89,9 @@ switch ($route) {
                 break;
         }
         break;
+        
     default:
         // 404 page
         echo "404 - Page not found";
         break;
 }
-
